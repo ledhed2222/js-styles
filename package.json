@@ -5,7 +5,15 @@
   "description": "Shared JavaScript style config packages for ledhed2222",
   "license": "ISC",
   "author": "ledhed2222",
+  "type": "module",
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@ledhed2222/eslint-config": "^1.0.0",
+    "eslint": "^9.39.5"
+  }
 }
