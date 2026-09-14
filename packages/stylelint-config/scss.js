@@ -1,3 +1,3 @@
 export default {
-  extends: ['stylelint-config-standard-scss'],
+  extends: ['./base.js', 'stylelint-config-standard-scss'],
 }

@@ -11,6 +11,7 @@
   "author": "ledhed2222",
   "license": "ISC",
   "dependencies": {
+    "@stylistic/stylelint-plugin": "^5.0.0",
     "stylelint-config-standard": "^40.0.0"
   },
   "peerDependencies": {
