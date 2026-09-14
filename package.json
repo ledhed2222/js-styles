@@ -1,12 +1,11 @@
 {
-  "name": "@ledhed2222/prettier-config",
+  "name": "js-styles",
   "version": "1.0.0",
-  "description": "JavaScript Prettier config for ledhed2222",
+  "private": true,
+  "description": "Shared JavaScript style config packages for ledhed2222",
   "license": "ISC",
   "author": "ledhed2222",
-  "type": "commonjs",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  "workspaces": [
+    "packages/*"
+  ]
 }
