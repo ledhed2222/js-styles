@@ -14,3 +14,4 @@ Each package is published independently to npm.
 2. `npm login` once per machine/session if not already logged in.
 3. From the repo root: `npm publish --access public --workspace packages/<name>` (or `cd packages/<name> && npm publish --access public`).
 4. If the account has 2FA, the first publish of a session pauses for a one-time password — it prints a `npmjs.com/auth/cli/...` URL to authenticate in a browser, then rerun the same publish command.
+5. Tag the release and mirror it as a GitHub release, so the repo's release history matches what's on npm: `git tag <package-name>@<version> && git push origin <package-name>@<version>`, then `gh release create <package-name>@<version> --title "<package-name> <version>" --notes "Published to npm: https://www.npmjs.com/package/<package-name>/v/<version>"`.
