@@ -1,0 +1,44 @@
+{
+  "name": "@ledhed2222/eslint-config",
+  "version": "1.0.0",
+  "description": "ESLint flat config presets for ledhed2222",
+  "type": "module",
+  "main": "./base.js",
+  "exports": {
+    ".": "./base.js",
+    "./typescript": "./typescript.js",
+    "./react": "./react.js",
+    "./prettier": "./prettier.js"
+  },
+  "author": "ledhed2222",
+  "license": "ISC",
+  "dependencies": {
+    "@eslint/js": "^9.0.0",
+    "eslint-plugin-import": "^2.32.0"
+  },
+  "peerDependencies": {
+    "eslint": "^9.0.0",
+    "typescript-eslint": "^8.0.0",
+    "eslint-plugin-react": "^7.37.0",
+    "eslint-plugin-react-hooks": "^7.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-config-prettier": "^10.0.0"
+  },
+  "peerDependenciesMeta": {
+    "typescript-eslint": {
+      "optional": true
+    },
+    "eslint-plugin-react": {
+      "optional": true
+    },
+    "eslint-plugin-react-hooks": {
+      "optional": true
+    },
+    "eslint-plugin-prettier": {
+      "optional": true
+    },
+    "eslint-config-prettier": {
+      "optional": true
+    }
+  }
+}

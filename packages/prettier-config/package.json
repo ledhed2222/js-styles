@@ -1,0 +1,15 @@
+{
+  "name": "@ledhed2222/prettier-config",
+  "version": "1.0.0",
+  "description": "JavaScript Prettier config for ledhed2222",
+  "license": "ISC",
+  "author": "ledhed2222",
+  "type": "module",
+  "main": "./base.js",
+  "exports": {
+    ".": "./base.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

@@ -1,1 +1,16 @@
-Basic config that I like for JavaScript's `prettier` binary.
+# js-styles
+
+JavaScript/TypeScript/CSS style config packages I use across projects.
+
+- [`packages/prettier-config`](packages/prettier-config) — `@ledhed2222/prettier-config`
+- [`packages/eslint-config`](packages/eslint-config) — `@ledhed2222/eslint-config`
+- [`packages/stylelint-config`](packages/stylelint-config) — `@ledhed2222/stylelint-config`
+
+Each package is published independently to npm.
+
+## Publishing
+
+1. Bump `version` in the package's own `package.json` (semver).
+2. `npm login` once per machine/session if not already logged in.
+3. From the repo root: `npm publish --access public --workspace packages/<name>` (or `cd packages/<name> && npm publish --access public`).
+4. If the account has 2FA, the first publish of a session pauses for a one-time password — it prints a `npmjs.com/auth/cli/...` URL to authenticate in a browser, then rerun the same publish command.

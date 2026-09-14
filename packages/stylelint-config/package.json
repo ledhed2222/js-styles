@@ -1,0 +1,27 @@
+{
+  "name": "@ledhed2222/stylelint-config",
+  "version": "1.0.0",
+  "description": "Stylelint config presets for ledhed2222",
+  "type": "module",
+  "main": "./base.js",
+  "exports": {
+    ".": "./base.js",
+    "./scss": "./scss.js",
+    "./react": "./react.js"
+  },
+  "author": "ledhed2222",
+  "license": "ISC",
+  "dependencies": {
+    "@stylistic/stylelint-plugin": "^5.0.0",
+    "stylelint-config-standard": "^40.0.0"
+  },
+  "peerDependencies": {
+    "stylelint": "^17.0.0",
+    "stylelint-config-standard-scss": "^17.0.0"
+  },
+  "peerDependenciesMeta": {
+    "stylelint-config-standard-scss": {
+      "optional": true
+    }
+  }
+}
