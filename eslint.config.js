@@ -8,13 +8,4 @@ export default [
       'import/no-default-export': 'off',
     },
   },
-  {
-    files: ['packages/prettier-config/**/*.js'],
-    languageOptions: {
-      sourceType: 'commonjs',
-      globals: {
-        module: 'writable',
-      },
-    },
-  },
 ]
