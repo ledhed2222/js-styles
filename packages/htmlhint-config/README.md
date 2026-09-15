@@ -11,6 +11,17 @@ full document (`doctype-first`, `title-require`, `html-lang-require`,
 - `tag-pair`
 - `tag-self-close`
 - `spec-char-escape`
+- `attr-value-not-empty`
+- `attr-whitespace`
+- `attr-no-unnecessary-whitespace`
+- `attr-value-no-duplication`
+- `tag-no-obsolete`
+- `tagname-specialchars`
+- `script-disabled` / `style-disabled` — inline `<script>`/`<style>` don't
+  belong in a fragment that's meant to be assembled from a shared source of
+  truth elsewhere.
+- `alt-require`
+- `id-class-value: 'dash'`
 
 ## Usage
 
