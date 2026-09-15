@@ -25,24 +25,27 @@ if (targets.length === 0) {
   targets.push('.')
 }
 
+function collectFromEntry(target, entry) {
+  if (ignoreNames.has(entry.name)) {
+    return []
+  }
+  const full = path.join(target, entry.name)
+  if (entry.isDirectory()) {
+    return collectHtmlFiles(full)
+  }
+  if (entry.isFile() && entry.name.endsWith('.html')) {
+    return [full]
+  }
+  return []
+}
+
 function collectHtmlFiles(target) {
   if (fs.statSync(target).isFile()) {
     return [target]
   }
-
-  const files = []
-  for (const entry of fs.readdirSync(target, { withFileTypes: true })) {
-    if (ignoreNames.has(entry.name)) {
-      continue
-    }
-    const full = path.join(target, entry.name)
-    if (entry.isDirectory()) {
-      files.push(...collectHtmlFiles(full))
-    } else if (entry.isFile() && entry.name.endsWith('.html')) {
-      files.push(full)
-    }
-  }
-  return files
+  return fs
+    .readdirSync(target, { withFileTypes: true })
+    .flatMap((entry) => collectFromEntry(target, entry))
 }
 
 const files = targets.flatMap(collectHtmlFiles)
