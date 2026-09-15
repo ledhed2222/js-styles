@@ -8,9 +8,7 @@ import path from 'node:path'
 import htmlhint from 'htmlhint'
 import ruleset from './base.js'
 
-const ignoreNames = new Set(['node_modules', 'dist'])
-
-function parseTargets(argv) {
+function parseTargets(argv, ignoreNames) {
   const targets = []
   const args = argv[Symbol.iterator]()
   for (const arg of args) {
@@ -23,13 +21,13 @@ function parseTargets(argv) {
   return targets.length ? targets : ['.']
 }
 
-function collectFromEntry(target, entry) {
+function collectFromEntry(target, entry, ignoreNames) {
   if (ignoreNames.has(entry.name)) {
     return []
   }
   const full = path.join(target, entry.name)
   if (entry.isDirectory()) {
-    return collectHtmlFiles(full)
+    return collectHtmlFiles(full, ignoreNames)
   }
   if (entry.isFile() && entry.name.endsWith('.html')) {
     return [full]
@@ -37,13 +35,13 @@ function collectFromEntry(target, entry) {
   return []
 }
 
-function collectHtmlFiles(target) {
+function collectHtmlFiles(target, ignoreNames) {
   if (fs.statSync(target).isFile()) {
     return [target]
   }
   return fs
     .readdirSync(target, { withFileTypes: true })
-    .flatMap((entry) => collectFromEntry(target, entry))
+    .flatMap((entry) => collectFromEntry(target, entry, ignoreNames))
 }
 
 function lintFile(file) {
@@ -56,8 +54,11 @@ function lintFile(file) {
 }
 
 function main() {
-  const targets = parseTargets(process.argv.slice(2))
-  const files = targets.flatMap(collectHtmlFiles)
+  const ignoreNames = new Set(['node_modules', 'dist'])
+  const targets = parseTargets(process.argv.slice(2), ignoreNames)
+  const files = targets.flatMap((target) =>
+    collectHtmlFiles(target, ignoreNames),
+  )
   const errorCount = files.reduce((sum, file) => sum + lintFile(file), 0)
 
   if (errorCount) {
