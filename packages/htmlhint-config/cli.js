@@ -12,13 +12,13 @@ const { HTMLHint } = htmlhintPkg
 
 const ignoreNames = new Set(['node_modules', 'dist'])
 const targets = []
-const args = process.argv.slice(2)
+const args = process.argv.slice(2)[Symbol.iterator]()
 
-for (let i = 0; i < args.length; i++) {
-  if (args[i] === '--ignore') {
-    ignoreNames.add(args[++i])
+for (const arg of args) {
+  if (arg === '--ignore') {
+    ignoreNames.add(args.next().value)
   } else {
-    targets.push(args[i])
+    targets.push(arg)
   }
 }
 if (targets.length === 0) {
