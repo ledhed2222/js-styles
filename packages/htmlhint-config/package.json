@@ -1,0 +1,18 @@
+{
+  "name": "@ledhed2222/htmlhint-config",
+  "version": "1.0.0",
+  "description": "HTMLHint ruleset presets for ledhed2222",
+  "type": "module",
+  "main": "./base.js",
+  "exports": {
+    ".": "./base.js"
+  },
+  "bin": {
+    "htmlhint-config-lint": "./cli.js"
+  },
+  "author": "ledhed2222",
+  "license": "ISC",
+  "dependencies": {
+    "htmlhint": "^1.0.0"
+  }
+}
