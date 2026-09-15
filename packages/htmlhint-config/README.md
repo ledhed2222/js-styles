@@ -1,27 +1,9 @@
-A conservative HTMLHint ruleset — deliberately skips anything that assumes a
-full document (`doctype-first`, `title-require`, `html-lang-require`,
+A conservative HTMLHint ruleset covering tag/attribute correctness and
+hygiene — deliberately skips anything that assumes a full document
+(`doctype-first`, `title-require`, `html-lang-require`,
 `meta-charset-require`, etc.), so it also works against HTML fragments
 (partials, template snippets) that never have a `<!doctype>` or `<title>`.
-
-- `tagname-lowercase`
-- `attr-lowercase`
-- `attr-value-double-quotes`
-- `attr-no-duplication`
-- `id-unique`
-- `tag-pair`
-- `tag-self-close`
-- `spec-char-escape`
-- `attr-value-not-empty`
-- `attr-whitespace`
-- `attr-no-unnecessary-whitespace`
-- `attr-value-no-duplication`
-- `tag-no-obsolete`
-- `tagname-specialchars`
-- `script-disabled` / `style-disabled` — inline `<script>`/`<style>` don't
-  belong in a fragment that's meant to be assembled from a shared source of
-  truth elsewhere.
-- `alt-require`
-- `id-class-value: 'dash'`
+See `base.js` for the exact ruleset.
 
 ## Usage
 
