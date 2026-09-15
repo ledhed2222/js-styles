@@ -1,6 +1,6 @@
 {
   "name": "@ledhed2222/htmlhint-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "HTMLHint ruleset presets for ledhed2222",
   "type": "module",
   "main": "./base.js",
