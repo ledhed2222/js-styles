@@ -7,9 +7,12 @@
   "exports": {
     ".": "./base.js"
   },
+  "bin": {
+    "htmlhint-config-lint": "./cli.js"
+  },
   "author": "ledhed2222",
   "license": "ISC",
-  "peerDependencies": {
+  "dependencies": {
     "htmlhint": "^1.0.0"
   }
 }
