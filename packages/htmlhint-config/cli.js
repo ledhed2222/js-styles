@@ -5,10 +5,9 @@
 // ruleset so consumers don't each need their own runner script.
 import fs from 'node:fs'
 import path from 'node:path'
-import htmlhintPkg from 'htmlhint'
+import htmlhint from 'htmlhint'
 import ruleset from './base.js'
 
-const { HTMLHint } = htmlhintPkg
 const ignoreNames = new Set(['node_modules', 'dist'])
 
 function parseTargets(argv) {
@@ -49,7 +48,7 @@ function collectHtmlFiles(target) {
 
 function lintFile(file) {
   const html = fs.readFileSync(file, 'utf8')
-  const messages = HTMLHint.verify(html, ruleset)
+  const messages = htmlhint.HTMLHint.verify(html, ruleset)
   for (const m of messages) {
     console.log(`${file}:${m.line}:${m.col} ${m.message} (${m.rule.id})`)
   }
