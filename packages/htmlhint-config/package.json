@@ -8,7 +8,7 @@
     ".": "./base.js"
   },
   "bin": {
-    "htmlhint-config-lint": "./cli.js"
+    "htmlhint-config-lint": "cli.js"
   },
   "author": "ledhed2222",
   "license": "ISC",
