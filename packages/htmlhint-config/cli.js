@@ -9,20 +9,19 @@ import htmlhintPkg from 'htmlhint'
 import ruleset from './base.js'
 
 const { HTMLHint } = htmlhintPkg
-
 const ignoreNames = new Set(['node_modules', 'dist'])
-const targets = []
-const args = process.argv.slice(2)[Symbol.iterator]()
 
-for (const arg of args) {
-  if (arg === '--ignore') {
-    ignoreNames.add(args.next().value)
-  } else {
-    targets.push(arg)
+function parseTargets(argv) {
+  const targets = []
+  const args = argv[Symbol.iterator]()
+  for (const arg of args) {
+    if (arg === '--ignore') {
+      ignoreNames.add(args.next().value)
+    } else {
+      targets.push(arg)
+    }
   }
-}
-if (targets.length === 0) {
-  targets.push('.')
+  return targets.length ? targets : ['.']
 }
 
 function collectFromEntry(target, entry) {
@@ -48,19 +47,25 @@ function collectHtmlFiles(target) {
     .flatMap((entry) => collectFromEntry(target, entry))
 }
 
-const files = targets.flatMap(collectHtmlFiles)
-let errorCount = 0
-
-for (const file of files) {
+function lintFile(file) {
   const html = fs.readFileSync(file, 'utf8')
-  for (const m of HTMLHint.verify(html, ruleset)) {
-    errorCount++
+  const messages = HTMLHint.verify(html, ruleset)
+  for (const m of messages) {
     console.log(`${file}:${m.line}:${m.col} ${m.message} (${m.rule.id})`)
   }
+  return messages.length
 }
 
-if (errorCount) {
-  console.log(`\n${errorCount} problem(s) in ${files.length} file(s)`)
-  process.exit(1)
+function main() {
+  const targets = parseTargets(process.argv.slice(2))
+  const files = targets.flatMap(collectHtmlFiles)
+  const errorCount = files.reduce((sum, file) => sum + lintFile(file), 0)
+
+  if (errorCount) {
+    console.log(`\n${errorCount} problem(s) in ${files.length} file(s)`)
+    process.exit(1)
+  }
+  console.log(`0 problems in ${files.length} file(s)`)
 }
-console.log(`0 problems in ${files.length} file(s)`)
+
+main()
