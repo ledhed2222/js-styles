@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@ledhed2222/eslint-config": "^1.0.0",
-    "eslint": "^9.39.5",
+    "eslint": "^10.10.0",
     "globals": "^17.12.0"
   }
 }
