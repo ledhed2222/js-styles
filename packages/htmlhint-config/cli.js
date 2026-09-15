@@ -21,14 +21,20 @@ for (let i = 0; i < args.length; i++) {
     targets.push(args[i])
   }
 }
-if (targets.length === 0) targets.push('.')
+if (targets.length === 0) {
+  targets.push('.')
+}
 
 function collectHtmlFiles(target) {
-  if (fs.statSync(target).isFile()) return [target]
+  if (fs.statSync(target).isFile()) {
+    return [target]
+  }
 
   const files = []
   for (const entry of fs.readdirSync(target, { withFileTypes: true })) {
-    if (ignoreNames.has(entry.name)) continue
+    if (ignoreNames.has(entry.name)) {
+      continue
+    }
     const full = path.join(target, entry.name)
     if (entry.isDirectory()) {
       files.push(...collectHtmlFiles(full))

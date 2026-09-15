@@ -13,6 +13,7 @@ export default [
     },
     rules: {
       'import/no-default-export': 'error',
+      curly: ['error', 'all'],
     },
   },
   {

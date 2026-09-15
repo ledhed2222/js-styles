@@ -2,7 +2,7 @@ ESLint flat configs I like, split so a plain JS project only pulls in what it ne
 
 Each entry point default-exports an array of flat config objects, meant to be spread into your own `eslint.config.js`. Compose only the pieces your project needs; put `prettier` last so it can turn off formatting rules the others turn on.
 
-- `@ledhed2222/eslint-config` — base: `eslint:recommended` + `import/no-default-export` (off for `*.config.*` and `*.d.ts`). Needs nothing but `eslint`.
+- `@ledhed2222/eslint-config` — base: `eslint:recommended` + `import/no-default-export` (off for `*.config.*` and `*.d.ts`) + `curly: ['error', 'all']` (every `if`/`else`/`for`/`while` body must use braces, even a single statement). Needs nothing but `eslint`.
 - `@ledhed2222/eslint-config/typescript` — `typescript-eslint`'s recommended config. Needs `typescript-eslint`.
 - `@ledhed2222/eslint-config/react` — `eslint-plugin-react` + `eslint-plugin-react-hooks` recommended rules, JSX parsing, `import/no-default-export` off for `.jsx`/`.tsx`. Needs `eslint-plugin-react` and `eslint-plugin-react-hooks`.
 - `@ledhed2222/eslint-config/prettier` — wires up `eslint-plugin-prettier` and disables formatting rules via `eslint-config-prettier`. Needs `eslint-plugin-prettier` and `eslint-config-prettier`.
