@@ -3,13 +3,14 @@ full document (`doctype-first`, `title-require`, `html-lang-require`,
 `meta-charset-require`, etc.), so it also works against HTML fragments
 (partials, template snippets) that never have a `<!doctype>` or `<title>`.
 
-- `tagname-lowercase`, `attr-lowercase`, `attr-value-double-quotes` — basic
-  consistency.
-- `attr-no-duplication`, `id-unique`, `tag-pair` — correctness (duplicate
-  attributes, duplicate ids, mismatched tags).
-- `tag-self-close` — void elements (`<br>`, `<hr>`, `<img>`, ...) must be
-  written self-closed: `<br />`, not `<br>`.
-- `spec-char-escape` — special characters must be HTML-escaped.
+- `tagname-lowercase`
+- `attr-lowercase`
+- `attr-value-double-quotes`
+- `attr-no-duplication`
+- `id-unique`
+- `tag-pair`
+- `tag-self-close`
+- `spec-char-escape`
 
 ## Usage
 
