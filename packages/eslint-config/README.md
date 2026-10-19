@@ -36,3 +36,13 @@ export default tseslint.config(
   ...prettier,
 )
 ```
+
+## TypeScript 7
+
+TypeScript 7.0 has no JavaScript API, so `typescript-eslint` (and the `/typescript` entry point) can't run against it and throws `typescript-eslint does not support TS 7.0.` Until `typescript-eslint` supports the 7.x API, install TypeScript 7 side by side with the 6.0 compatibility package, as [recommended by the TypeScript team](https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/#running-side-by-side-with-typescript-6.0):
+
+```sh
+npm install -D typescript@npm:@typescript/typescript6@^6.0.2 @typescript/native@npm:typescript@^7.0.2
+```
+
+`typescript` then resolves to the 6.0 API for `typescript-eslint`, while `npx tsc` still runs TypeScript 7.
