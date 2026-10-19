@@ -1,18 +1,18 @@
 import js from '@eslint/js'
-import importPlugin from 'eslint-plugin-import'
+import importX from 'eslint-plugin-import-x'
 
 export default [
   js.configs.recommended,
   {
     plugins: {
-      import: importPlugin,
+      'import-x': importX,
     },
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
     },
     rules: {
-      'import/no-default-export': 'error',
+      'import-x/no-default-export': 'error',
       curly: ['error', 'all'],
       'no-var': 'error',
       'prefer-const': 'error',
@@ -33,7 +33,7 @@ export default [
   {
     files: ['**/*.config.{js,mjs,cjs,ts,mts,cts}', '**/*.d.ts'],
     rules: {
-      'import/no-default-export': 'off',
+      'import-x/no-default-export': 'off',
     },
   },
 ]
