@@ -30,7 +30,7 @@ export default [
   {
     files: ['**/*.{jsx,tsx}'],
     rules: {
-      'import/no-default-export': 'off',
+      'import-x/no-default-export': 'off',
     },
   },
 ]
