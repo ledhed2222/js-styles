@@ -4,10 +4,10 @@ Each entry point default-exports an array of flat config objects, meant to be sp
 
 - `@ledhed2222/eslint-config` — the base ruleset. Needs nothing but `eslint`.
 - `@ledhed2222/eslint-config/typescript` — TypeScript support. Needs `typescript-eslint`.
-- `@ledhed2222/eslint-config/react` — React support. Needs `eslint-plugin-react` and `eslint-plugin-react-hooks`.
+- `@ledhed2222/eslint-config/react` — React support. Needs `@eslint-react/eslint-plugin`.
 - `@ledhed2222/eslint-config/prettier` — disables formatting rules that conflict with Prettier. Needs `eslint-plugin-prettier` and `eslint-config-prettier`.
 
-Only `eslint` and `typescript-eslint`/`eslint-plugin-react`/`eslint-plugin-react-hooks`/`eslint-plugin-prettier`/`eslint-config-prettier` are peer deps, and all but `eslint` are optional — install only the plugins for the entry points you actually import.
+Only `eslint` and `typescript-eslint`/`@eslint-react/eslint-plugin`/`eslint-plugin-prettier`/`eslint-config-prettier` are peer deps, and all but `eslint` are optional — install only the plugins for the entry points you actually import.
 
 ## Bare JS project
 
