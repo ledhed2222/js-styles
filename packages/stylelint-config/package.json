@@ -1,6 +1,6 @@
 {
   "name": "@ledhed2222/stylelint-config",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Stylelint config presets for ledhed2222",
   "type": "module",
   "main": "./base.js",
@@ -16,8 +16,8 @@
     "stylelint-config-standard": "^41.0.0"
   },
   "peerDependencies": {
-    "stylelint": "^17.0.0",
-    "stylelint-config-standard-scss": "^17.0.0"
+    "stylelint": "^18.0.0",
+    "stylelint-config-standard-scss": "^18.0.0"
   },
   "peerDependenciesMeta": {
     "stylelint-config-standard-scss": {
